@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import User
-from .models import Booking
+from .models import User, Booking
 
 # Create your views here.
 
