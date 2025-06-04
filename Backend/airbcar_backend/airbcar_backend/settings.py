@@ -84,8 +84,12 @@ WSGI_APPLICATION = 'airbcar_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'airbcar_db',
+        'USER': 'airbcar_user',
+        'PASSWORD': 'amineamine',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
