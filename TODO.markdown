@@ -13,16 +13,16 @@
 
 ## Amine Zaghloul (Backend Developer)
 
-- [ ] Install and configure Django with PostgreSQL connector (`psycopg2-binary`).
-- [ ] Create PostgreSQL database (`airbcar_db`) and user (`airbcar_user`).
+- [x] Install and configure Django with PostgreSQL connector (`psycopg2-binary`).
+- [x] Create PostgreSQL database (`airbcar_db`) and user (`airbcar_user`).
 - [ ] Set up JWT authentication for login, sign-up, and password reset flows.
-- [ ] Update project settings to use PostgreSQL and custom user model (`core.User`).
+- [x] Update project settings to use PostgreSQL and custom user model (`core.User`).
 - [ ] Test database connection and authentication endpoints.
-- [ ] Finalize PostgreSQL schema for `User` model (fields: `phone_number`, `profile_picture`, `default_currency`, `is_partner`, `is_verified`).
-- [ ] Create user management APIs (`/users/`) for CRUD operations.
+- [x] Finalize PostgreSQL schema for `User` model (fields: `phone_number`, `profile_picture`, `default_currency`, `is_partner`, `is_verified`).
+- [x] Create user management APIs (`/users/`) for CRUD operations.
 - [ ] Implement serializers and views for user APIs.
-- [ ] Apply migrations for `User` model and verify `core_user` table.
-- [ ] Add sample users (e.g., admin, partner, renter) to test APIs.
+- [x] Apply migrations for `User` model and verify `core_user` table.
+- [x] Add sample users (e.g., admin, partner, renter) to test APIs.
 - **Motivation**: You’re powering the backend engine, Amine—making Airbcar secure and functional! 💪
 
 ## Naoufal Chaknan (Frontend Developer)
