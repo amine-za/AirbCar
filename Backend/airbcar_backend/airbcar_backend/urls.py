@@ -16,13 +16,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from core.views import user_list, booking_list
+from rest_framework.routers import DefaultRouter
+from core.views import user_list, booking_list, UserViewSet, PartnerViewSet, ListingViewSet, BookingViewSet
+from rest_framework_simplejwt.views import TokenObtainPairView
 from core import views
+
+router = DefaultRouter()
+router.register(r'users', UserViewSet)
+router.register(r'partners', PartnerViewSet)
+router.register(r'listings', ListingViewSet)
+router.register(r'bookings', BookingViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('bookings/', booking_list, name='bookings_list'),
-    # path('users/', user_list, name='user_list'),
-    path('users/', include('core.urls')),
+    path('', include(router.urls)),
+    path('api/users/list/', user_list, name='user_list'),
+    path('api/bookings/list/', booking_list, name='bookings_list'),
+    # path('api-auth/', include('rest_framework.urls')),
+    # path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('', views.home_view),
 ]
