@@ -1,11 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import User, Booking, Partner, Listing
-from rest_framework import viewsets
+from rest_framework import viewsets, generics, status
 from .serializers import UserSerializer, BookingSerializer, PartnerSerializer, ListingSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.response import Response
+import uuid
 
 # Create your views here.
+
+#  This serializer class contains the logic for how to take the incoming 
+# data from the request and convert it into a model instance
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -39,3 +44,14 @@ def booking_list(request):
 
 def home_view(request):
     return HttpResponse("<h1>Welcome Home<h1>")
+
+class UserRegisterView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    def perform_create(self, serializer):
+        user = serializer.save()
+        user.email_verification_token = str(uuid.uuid4())  # Generate token for email verification
+        user.save()
+        # Placeholder for email verification (configured on Day 2)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)

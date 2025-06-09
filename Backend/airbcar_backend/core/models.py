@@ -11,6 +11,7 @@ class User(AbstractUser):
     is_partner = models.BooleanField(default=False)
     is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    email_verification_token = models.CharField(max_length=36, blank=True, null=True)
 
     def __str__(self):
         return self.username
